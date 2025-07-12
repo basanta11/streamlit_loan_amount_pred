@@ -5,6 +5,8 @@ import shap
 import ast
 import sys
 import os
+st.write("Working dir:", os.getcwd())
+st.write("Files:", os.listdir("models"))
 
 
 
