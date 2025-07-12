@@ -14,7 +14,12 @@ scaler_path = os.path.join("models", "preprocessor.joblib")
 
 @st.cache_resource
 def load_model():
-    return joblib.load(model_path)
+    try:
+        model = joblib.load(model_path)
+        return model
+    except Exception as e:
+        st.error(f"❌ Model load failed: {type(e).__name__} — {e}")
+        raise e
 
 model = load_model()
 
